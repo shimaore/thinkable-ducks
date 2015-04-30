@@ -7,9 +7,11 @@ Web Services
     Promise = require 'bluebird'
 
     module.exports = (cfg) ->
-      return unless options.web?
+      return unless cfg.web?
 
-      web = Zappa.run options.web, ->
+      web = Zappa.run cfg.web, ->
+
+        @helper {cfg}
 
 CallServer statistics
 ---------------------
@@ -19,6 +21,7 @@ CallServer statistics
             @res.status(404).json error:'No statistics'
             @res.end()
             return
+          @next()
 
         @get '/statistics/:key', need_statistics, ->
           precision = @query.precision ? 7
@@ -64,3 +67,8 @@ Supervisor info
             @json res
           .catch (error) =>
             @res.status(500).json error:error.toString()
+
+        if cfg.use?
+          for m in cfg.use when m.web?
+            do (m) =>
+              m.web.call this, this

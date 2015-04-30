@@ -1,15 +1,21 @@
     run = (cfg) ->
 
+      if cfg.use?
+        for m in cfg.use when m.config?
+          do (m) ->
+            ctx = {cfg}
+            m.config.call ctx, ctx
+
 Generate the configuration for FreeSwitch
 =========================================
 
       Promise.resolve() ->
         debug 'Building FreeSwitch configuration'
-        if cfg.freeswitch?
-          cfg.freeswitch cfg
+        unless cfg.server_only is true
+          cfg.freeswitch? cfg
       .then (xml) ->
         unless cfg.server_only is true
-          fs.writeFileAsync './conf/freeswitch.xml', xml, 'utf-8'
+          fs.writeFileAsync process.env.FSCONF, xml, 'utf-8'
       .catch (error) ->
         debug "Unable to create FreeeSwitch configuration: #{error}"
         throw error
@@ -29,7 +35,8 @@ Start the processes
         unless cfg.server_only is true
           debug 'Started FreeSwitch'
 
+
     module.exports = run
-    if module is require.main
-      cfg = require process.env.CONFIG
-      run cfg
+    Promise = require 'bluebird'
+    fs = Promise.promisifyAll require 'fs'
+    sup = require './supervisor'
