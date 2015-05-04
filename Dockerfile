@@ -1,3 +1,9 @@
+#
+# This is not meant to be a runnable image.
+# This will only work after you install your own
+# package in /opt/thinkable-ducks (see README.md).
+#
+
 FROM shimaore/freeswitch
 
 MAINTAINER Stéphane Alnet <stephane@shimaore.net>
@@ -26,6 +32,5 @@ USER freeswitch
 RUN mkdir -p \
   conf \
   log
-RUN npm install
 
 CMD ["supervisord","-n"]
