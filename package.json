@@ -22,6 +22,7 @@
     "caring-band": "^1.4.0",
     "chai": "^2.3.0",
     "chai-as-promised": "^5.0.0",
+    "coffee-script": "^1.9.2",
     "mocha": "^2.2.4",
     "superagent": "^1.2.0",
     "superagent-as-promised": "^3.1.1"

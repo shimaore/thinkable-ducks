@@ -20,11 +20,12 @@ ENV NODE_ENV production
 
 RUN mkdir -p /opt/thinkable-ducks
 WORKDIR /opt/thinkable-ducks
+COPY . /opt/thinkable-ducks
 RUN chown -R freeswitch.freeswitch .
 USER freeswitch
 RUN mkdir -p \
   conf \
   log
-COPY supervisord.conf /opt/thinkable-ducks
+RUN npm install
 
 CMD ["supervisord","-n"]
