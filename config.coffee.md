@@ -10,7 +10,8 @@
 Generate the configuration for FreeSwitch
 =========================================
 
-      Promise.resolve() ->
+      Promise.resolve()
+      .then ->
         debug 'Building FreeSwitch configuration'
         unless cfg.server_only is true
           cfg.freeswitch? cfg
