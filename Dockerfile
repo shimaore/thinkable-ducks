@@ -20,7 +20,7 @@ ENV NODE_ENV production
 
 RUN mkdir -p /opt/thinkable-ducks
 WORKDIR /opt/thinkable-ducks
-COPY . /opt/thinkable-ducks
+COPY supervisord.conf /opt/thinkable-ducks/
 RUN chown -R freeswitch.freeswitch .
 USER freeswitch
 RUN mkdir -p \

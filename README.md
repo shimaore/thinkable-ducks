@@ -1,7 +1,7 @@
 supervisor-controlled FreeSwitch image for useful-wind
 ======================================================
 
-index.coffee.md
+`index.coffee.md`
 
     ducks = require 'thinkable-ducks'
 
@@ -13,19 +13,20 @@ index.coffee.md
       # etc.
     ]
 
-    cfg.freeswitch = renderable (cfg) ->
-      {doctype,document,section,configuration,settings,param,modules,module,load,network_lists,list,node,global_settings,profiles,profile,mappings,map,context,extension,condition,action} = require 'acoustic-line'
-      doctype()
-      document type:'freeswitch/xml', ->
-        section name:'configuration', ->
-          # etc.
+    cfg.freeswitch = require 'tough-rate/conf/freeswitch'
 
     ducks cfg
 
 Install
 
-    npm install --save thinkable-ducks huge-play ...
+    npm install --save thinkable-ducks huge-play tough-rate ...
+
+`Dockerfile`
+
+    FROM shimaore/thinkable-ducks
+    COPY . /opt/thinkable-ducks
+    RUN npm install
 
 Build
 
-    docker build node_modules/thinkable-ducks/Dockerfile
+    docker build .
