@@ -1,4 +1,5 @@
     run = (cfg) ->
+      assert process.env.MODE?, 'Missing MODE environment variable'
       mode = process.env.MODE
 
       switch mode

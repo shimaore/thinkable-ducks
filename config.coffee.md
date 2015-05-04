@@ -4,6 +4,7 @@
         for m in cfg.use when m.config?
           do (m) ->
             ctx = {cfg}
+            debug "Calling middleware #{m.name}.config()"
             m.config.call ctx, ctx
 
 Generate the configuration for FreeSwitch
