@@ -7,6 +7,8 @@
             debug "Calling middleware #{m.name}.config()"
             m.config.call ctx, ctx
 
+      supervisor = sup cfg
+
 Generate the configuration for FreeSwitch
 =========================================
 
@@ -26,7 +28,6 @@ Start the processes
 ===================
 
       .then ->
-        supervisor = sup cfg
         supervisor.startProcessAsync 'server'
       .then ->
         debug 'Started server'
