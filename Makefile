@@ -20,7 +20,7 @@ tests:
 	npm test
 
 push: image tests
-	# docker push ${NAME}:${TAG}
-	# docker push ${NAME}:latest
 	docker push ${REGISTRY}/${NAME}:${TAG}
 	docker push ${REGISTRY}/${NAME}
+	docker push ${NAME}:${TAG}
+	docker push ${NAME}:latest
