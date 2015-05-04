@@ -1,4 +1,5 @@
 Socket.IO client that maps `statistics` (that is, CaringBand-as-EventEmitter) messages to Socket.io messages.
+This is meant to be used in conjunction with (e.g.) the `spicy-action` message forwarder.
 
     module.exports = (cfg) ->
       return unless cfg.notify? and cfg.statistics?
