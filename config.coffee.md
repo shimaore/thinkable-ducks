@@ -1,18 +1,12 @@
     run = (cfg) ->
 
-      if cfg.use?
-        for m in cfg.use when m.config?
-          do (m) ->
-            ctx = {cfg}
-            debug "Calling middleware #{m.name}.config()"
-            m.config.call ctx, ctx
-
       supervisor = sup cfg
+
+      serialize cfg, 'config'
 
 Generate the configuration for FreeSwitch
 =========================================
 
-      Promise.resolve()
       .then ->
         debug 'Building FreeSwitch configuration'
         unless cfg.server_only is true
@@ -43,5 +37,6 @@ Start the processes
     Promise = require 'bluebird'
     fs = Promise.promisifyAll require 'fs'
     sup = require './supervisor'
+    serialize = require './serialize'
     pkg = require './package.json'
     debug = (require 'debug') "#{pkg.name}:config"
