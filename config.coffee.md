@@ -27,9 +27,9 @@ Start the processes
 
       .then ->
         supervisor = sup cfg
-        supervisor.startProcessAsync 'call_server'
+        supervisor.startProcessAsync 'server'
       .then ->
-        debug 'Started call_server'
+        debug 'Started server'
       .then ->
         unless cfg.server_only is true
           supervisor.startProcessAsync 'freeswitch'
