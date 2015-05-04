@@ -8,4 +8,5 @@
         when 'server'
           (require './server') cfg
 
+    assert = require 'assert'
     module.exports = run
