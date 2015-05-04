@@ -2,6 +2,7 @@ supervisor-controlled FreeSwitch image for useful-wind
 ======================================================
 
 `index.coffee.md`
+-----------------
 
     ducks = require 'thinkable-ducks'
 
@@ -18,15 +19,22 @@ supervisor-controlled FreeSwitch image for useful-wind
     ducks cfg
 
 Install
+-------
 
     npm install --save thinkable-ducks huge-play tough-rate ...
 
+`coffee-script` is required by the `supervisord.conf` scripts.
+
+    npm install --save coffee-script
+
 `Dockerfile`
+------------
 
     FROM shimaore/thinkable-ducks
     COPY . /opt/thinkable-ducks
     RUN npm install
 
 Build
+-----
 
     docker build .
