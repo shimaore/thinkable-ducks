@@ -33,7 +33,7 @@ It will then create a FreeSwitch XML configuration file by rendering the `freesw
 
 Finally it will start the `server` application, and FreeSwitch itself.
 
-Note: if the configuration contains a `server_only` flag, no FreeSwitch configuration is created.
+Note: if the configuration contains a `server_only` flag, no FreeSwitch configuration is created, and FreeSwitch is not started.
 
 `server`
 --------
