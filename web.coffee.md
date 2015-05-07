@@ -10,6 +10,7 @@ Web Services
       return unless cfg.web?
 
       cfg.versions ?= {}
+      cfg.versions[pkg.name] = pkg.version
 
       web = Zappa.run cfg.web, ->
 
@@ -46,7 +47,6 @@ Generic statistics
           @json
             ok:true
             package: pkg.name
-            version: pkg.version
             uptime: process.uptime()
             memory: process.memoryUsage()
             versions: @cfg.versions
