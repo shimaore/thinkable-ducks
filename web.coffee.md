@@ -9,6 +9,8 @@ Web Services
     module.exports = (cfg) ->
       return unless cfg.web?
 
+      cfg.versions ?= {}
+
       web = Zappa.run cfg.web, ->
 
         @helper {cfg}
@@ -47,6 +49,7 @@ Generic statistics
             version: pkg.version
             uptime: process.uptime()
             memory: process.memoryUsage()
+            versions: @cfg.versions
 
 Supervisor info
 ---------------
