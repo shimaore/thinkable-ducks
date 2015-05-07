@@ -21,7 +21,7 @@
         request.get 'http://127.0.0.1:5704/'
         .then ({body}) ->
           body.should.have.property 'ok', true
-          body.should.have.property 'version'
+          body.should.have.property 'versions'
 
       it 'should provide all statistics', ->
         request.get 'http://127.0.0.1:5704/statistics'
