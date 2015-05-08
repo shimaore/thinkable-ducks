@@ -27,5 +27,26 @@
     "mocha": "^2.2.4",
     "superagent": "^1.2.0",
     "superagent-as-promised": "^3.1.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shimaore/thinkable-ducks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shimaore/thinkable-ducks/issues"
+  },
+  "homepage": "https://github.com/shimaore/thinkable-ducks",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "FreeSwitch",
+    "middleware",
+    "Docker.io",
+    "Docker",
+    "useful-wind",
+    "SIP",
+    "event",
+    "socket"
+  ]
 }
