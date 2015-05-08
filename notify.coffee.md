@@ -2,25 +2,22 @@ Socket.IO client that maps `statistics` (that is, CaringBand-as-EventEmitter) me
 This is meant to be used in conjunction with (e.g.) the `spicy-action` message forwarder.
 
     module.exports = (cfg) ->
-      return unless cfg.notify? and cfg.statistics?
+      unless cfg.notify?
+        debug 'Missing cfg.notify, not starting Socket.IO'
+        return
+
+      unless cfg.statistics?
+        debug 'Missing cfg.statistics, will not report statistics.'
 
       socket = io cfg.notify
 
-Standard events: `add`, `call`, `report`
+Standard events: `add`.
 
-      cfg.statistics.on 'add', (data) ->
-        socket.emit 'statistics:add',
+      cfg.statistics?.on 'add', (data) ->
+        cfg.socket.emit 'statistics:add',
           host: cfg.host
           key: data.key
           value: data.value.toJSON()
-      cfg.statistics.on 'call', (data) ->
-        socket.emit 'call',
-          host: cfg.host
-          data: data
-      cfg.statistics.on 'report', (data) ->
-        socket.emit 'report',
-          host: cfg.host
-          data: data
 
 Optionally let each module define its own events
 
@@ -32,3 +29,4 @@ Optionally let each module define its own events
 
     io = require 'socket.io-client'
     pkg = require './package.json'
+    debug = (require 'debug') "#{pkg.name}:notify"
