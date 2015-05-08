@@ -15,6 +15,7 @@ Web Services
       web = Zappa.run cfg.web, ->
 
         @helper {cfg}
+        @cfg = cfg
 
 CallServer statistics
 ---------------------
