@@ -37,6 +37,6 @@ Start the processes
     Promise = require 'bluebird'
     fs = Promise.promisifyAll require 'fs'
     sup = require './supervisor'
-    serialize = require './serialize'
+    serialize = require 'useful-wind/serialize'
     pkg = require './package.json'
     debug = (require 'debug') "#{pkg.name}:config"

@@ -8,6 +8,9 @@
       .then ->
 
         server = new call_server cfg
+
+`server.listen` will call the `@init` functions.
+
         server.listen cfg.port
         cfg.server = server
 
@@ -21,6 +24,6 @@
         server
 
     module.exports = run
-    serialize = require './serialize'
+    serialize = require 'useful-wind/serialize'
     pkg = require './package.json'
     debug = (require 'debug') "#{pkg.name}:server"
