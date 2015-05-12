@@ -8,7 +8,7 @@ TAG=`jq -r .version package.json`
 image:
 	npm install
 	docker build --rm=true -t ${NAME}:${TAG} .
-	docker tag ${NAME}:${TAG} ${REGISTRY}/${NAME}:${TAG}
+	docker tag -f ${NAME}:${TAG} ${REGISTRY}/${NAME}:${TAG}
 
 image-no-cache:
 	docker build --rm=true --no-cache -t ${NAME}:${TAG} .
