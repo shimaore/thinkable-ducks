@@ -1,4 +1,5 @@
     call_server = require 'useful-wind/call_server'
+    CaringBand = require 'caring-band'
 
     run = (cfg) ->
 
@@ -6,6 +7,10 @@
 
       serialize cfg, 'server_pre'
       .then ->
+
+If `server_pre` did not provide a `statistics` object, provide a default one.
+
+        cfg.statistics ?= new CaringBand()
 
         server = new call_server cfg
 

@@ -6,15 +6,12 @@ This is meant to be used in conjunction with (e.g.) the `spicy-action` message f
         debug 'Missing cfg.notify, not starting Socket.IO'
         return
 
-      unless cfg.statistics?
-        debug 'Missing cfg.statistics, will not report statistics.'
-
       socket = io cfg.notify
 
 Standard events: `add`.
 
       cfg.statistics?.on 'add', (data) ->
-        cfg.socket.emit 'statistics:add',
+        socket.emit 'statistics:add',
           host: cfg.host
           key: data.key
           value: data.value.toJSON()
