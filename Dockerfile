@@ -4,7 +4,7 @@
 # package in /opt/thinkable-ducks (see README.md).
 #
 
-FROM shimaore/freeswitch
+FROM shimaore/freeswitch:2.1.0
 
 MAINTAINER Stéphane Alnet <stephane@shimaore.net>
 
