@@ -21,7 +21,7 @@ RUN git clone https://github.com/tj/n.git
 WORKDIR n
 RUN make install
 WORKDIR ..
-RUN n io 1.7.1
+RUN n io 2.3.3
 ENV NODE_ENV production
 
 RUN mkdir -p /opt/thinkable-ducks
