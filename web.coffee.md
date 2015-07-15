@@ -14,6 +14,8 @@ Web Services
 
       web = Zappa.run cfg.web, ->
 
+        @use morgan:'combined'
+
         @helper {cfg}
         @cfg = cfg
 
