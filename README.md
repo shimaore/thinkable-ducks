@@ -119,8 +119,8 @@ An application is build out of middleware modules. The main application may look
     cfg = require process.env.CONFIG
 
     cfg.use = [
-      require 'huge-play/middleware/db'
-      require 'huge-play/middleware/client/force-codecs'
+      require 'huge-play/middleware/setup'
+      require 'huge-play/middleware/client/media'
       # etc. `require` any middleware module you might need
     ]
 
