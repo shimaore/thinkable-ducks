@@ -4,7 +4,7 @@
 #
 NAME=shimaore/`jq -r .name package.json`
 TAG=`jq -r .version package.json`
-SUPERVISOR_PORT=5700
+SUPERVISOR_PORT=`jq -r .supervisor_port package.json`
 
 image: supervisord.conf
 	npm install

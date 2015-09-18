@@ -21,6 +21,7 @@
     "useful-wind": "^7.1.0",
     "zappajs": "^2.2.0"
   },
+  "supervisor_port": 5700,
   "devDependencies": {
     "chai": "^3.0.0",
     "chai-as-promised": "^5.1.0",
