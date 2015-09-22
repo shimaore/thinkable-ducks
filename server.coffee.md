@@ -29,6 +29,6 @@ If `server_pre` did not provide a `statistics` object, provide a default one.
         server
 
     module.exports = run
-    serialize = require 'useful-wind/serialize'
+    serialize = require 'useful-wind-serialize'
     pkg = require './package.json'
     debug = (require 'debug') "#{pkg.name}:server"

@@ -19,6 +19,7 @@
     "socket.io-client": "^1.3.6",
     "supervisord": "0.0.4",
     "useful-wind": "^7.1.0",
+    "useful-wind-serialize": "^1.0.0",
     "zappajs": "^2.2.0"
   },
   "supervisor_port": 5700,
