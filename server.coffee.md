@@ -21,6 +21,7 @@ If `server_pre` did not provide a `statistics` object, provide a default one.
 
         (require './web') cfg
         (require './notify') cfg
+        (require './munin') cfg
 
         null
       .then ->

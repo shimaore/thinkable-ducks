@@ -28,3 +28,31 @@
         .then ({body}) ->
           body.should.have.property 'foo'
           body.foo.should.have.property 'count', 1
+
+    describe 'Munin web service', ->
+      app = null
+      before ->
+        CaringBand = require 'caring-band'
+        statistics = new CaringBand()
+        cfg =
+          statistics: statistics
+        app = (require '../munin') cfg
+        statistics.add 'duration', 2
+      after ->
+        app.server?.close()
+
+      it 'should respond', ->
+        request.get 'http://127.0.0.1:3950/'
+        .then ({text}) ->
+          console.log text
+          text.should.match /multigraph/
+
+      it 'should respond for config', ->
+        request.get 'http://127.0.0.1:3950/config'
+        .then ({text}) ->
+          text.should.match /multigraph/
+
+      it 'should provide statistics', ->
+        request.get 'http://127.0.0.1:3950/'
+        .then ({text}) ->
+          text.should.match /\nmultigraph freeswitch_hugeplay\nfreeswitch_hugeplay_duration.value 2\n/
