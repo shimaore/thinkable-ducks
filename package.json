@@ -1,6 +1,6 @@
 {
   "name": "thinkable-ducks",
-  "version": "5.0.2",
+  "version": "5.1.0",
   "description": "supervisor-controlled image for useful-wind",
   "main": "index.js",
   "scripts": {
