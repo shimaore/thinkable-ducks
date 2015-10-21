@@ -33,4 +33,4 @@ RUN mkdir -p \
   conf \
   log
 
-CMD ["supervisord","-n"]
+CMD ["/opt/thinkable-ducks/supervisord.conf.sh"]

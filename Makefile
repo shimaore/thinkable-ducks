@@ -4,15 +4,11 @@
 #
 NAME=shimaore/`jq -r .name package.json`
 TAG=`jq -r .version package.json`
-SUPERVISOR_PORT=`jq -r .supervisor_port package.json`
 
-image: supervisord.conf
+image:
 	npm install
 	docker build -t ${NAME}:${TAG} .
 	docker tag -f ${NAME}:${TAG} ${REGISTRY}/${NAME}:${TAG}
-
-%: %.src
-	sed -e "s/SUPERVISOR_PORT/${SUPERVISOR_PORT}/" $< >$@
 
 tests:
 	npm test

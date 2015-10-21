@@ -22,7 +22,6 @@
     "useful-wind-serialize": "^1.0.0",
     "zappajs": "^3.0.1"
   },
-  "supervisor_port": 5700,
   "devDependencies": {
     "chai": "^3.3.0",
     "chai-as-promised": "^5.1.0",
