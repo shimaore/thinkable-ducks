@@ -1,6 +1,8 @@
 .git
+common
 local
 node_modules
+test
 *.md
 *.json
 *.js
