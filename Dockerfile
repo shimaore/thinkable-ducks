@@ -4,34 +4,43 @@
 # package in /opt/thinkable-ducks (see README.md).
 #
 
-FROM shimaore/freeswitch:2.1.0
-
+FROM shimaore/freeswitch:2.1.2
 MAINTAINER Stéphane Alnet <stephane@shimaore.net>
-
-USER root
-RUN apt-get update && apt-get install -y --no-install-recommends \
-  build-essential \
-  ca-certificates \
-  curl \
-  git \
-  make \
-  supervisor
-# Install Node.js using `n`.
-RUN git clone https://github.com/tj/n.git
-WORKDIR n
-RUN make install
-WORKDIR ..
-RUN n io 2.3.3
 ENV NODE_ENV production
 
-RUN mkdir -p /opt/thinkable-ducks
+USER root
+RUN \
+  mkdir -p /opt/thinkable-ducks/{conf,log} && \
+  chown -R freeswitch.freeswitch /opt/thinkable-ducks/ && \
+  apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    ca-certificates \
+    curl \
+    git \
+    make \
+    python-pkg-resources \
+    supervisor \
+  && \
+# Install Node.js using `n`.
+  git clone https://github.com/tj/n.git n.git && \
+  cd n.git && \
+  make install && \
+  cd .. && \
+  rm -rf n.git && \
+  n 4.2.1 && \
+  apt-get purge -y \
+    build-essential \
+    ca-certificates \
+    cpp-5 \
+    gcc-5 \
+    curl \
+    git \
+    make \
+  && \
+  apt-get autoremove -y && apt-get clean
+
 WORKDIR /opt/thinkable-ducks
+USER freeswitch
 COPY supervisord.conf.src /opt/thinkable-ducks/
 COPY supervisord.conf.sh /opt/thinkable-ducks/
-RUN chown -R freeswitch.freeswitch .
-USER freeswitch
-RUN mkdir -p \
-  conf \
-  log
-
 CMD ["/opt/thinkable-ducks/supervisord.conf.sh"]
