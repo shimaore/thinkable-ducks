@@ -6,7 +6,6 @@ NAME=shimaore/`jq -r .name package.json`
 TAG=`jq -r .version package.json`
 
 image:
-	npm install
 	docker build -t ${NAME}:${TAG} .
 	docker tag -f ${NAME}:${TAG} ${REGISTRY}/${NAME}:${TAG}
 
