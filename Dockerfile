@@ -27,7 +27,7 @@ RUN \
   make install && \
   cd .. && \
   rm -rf n.git && \
-  n 4.2.1 && \
+  n 4.2.4 && \
   apt-get purge -y \
     build-essential \
     ca-certificates \
