@@ -57,17 +57,23 @@ Munin Configuration
       text = """
         multigraph #{name}_node_uptime
         graph_title Node.js uptime
+        graph_args --base 1000 -l 0
+        graph_scale no
         graph_vlabel seconds
         graph_category voice
         #{name}_node_uptime.label uptime
+        #{name}_node_uptime.draw AREA
 
         multigraph #{name}_node_memory
         graph_title Node.js memory
         graph_vlabel bytes
         graph_category voice
         #{name}_node_memory_rss.label rss
+        #{name}_node_memory_rss.min 0
         #{name}_node_memory_heap_total.label heap (total)
+        #{name}_node_memory_heap_total.min 0
         #{name}_node_memory_heap_used.label heap (used)
+        #{name}_node_memory_heap_used.min 0
 
         multigraph #{name}_hugeplay
         graph_title Durations
@@ -79,8 +85,8 @@ Munin Configuration
       for key in hugeplay_keys
         text += """
           #{name}_hugeplay_#{key}.label #{key}
-          #{name}_tm_total.type DERIVE
-          #{name}_tm_total.min 0
+          #{name}_hugeplay_#{key}.type DERIVE
+          #{name}_hugeplay_#{key}.min 0
 
         """
 
