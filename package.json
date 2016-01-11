@@ -16,9 +16,9 @@
     "caring-band": "^1.4.2",
     "debug": "^2.2.0",
     "morgan": "^1.6.1",
-    "socket.io-client": "^1.3.7",
+    "socket.io-client": "^1.4.4",
     "supervisord": "0.1.0",
-    "useful-wind": "^7.1.5",
+    "useful-wind": "^7.1.6",
     "useful-wind-serialize": "^1.0.1",
     "zappajs": "^4.0.0-4"
   },
