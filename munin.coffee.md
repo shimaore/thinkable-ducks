@@ -54,7 +54,7 @@ Web Services for Munin
 Munin Configuration
 ===================
 
-    name = 'freeswitch'
+    name = process.env.MUNIN_NAME ? 'freeswitch'
     hugeplay_keys = ['duration','billable','progress','answer','wait','progress_media','flow_bill']
 
     build_config = (cfg) ->
