@@ -1,7 +1,7 @@
 {
   "name": "thinkable-ducks",
   "docker_name": "shimaore/thinkable-ducks",
-  "version": "6.0.13",
+  "version": "6.0.14",
   "description": "supervisor-controlled image for useful-wind",
   "main": "index.js",
   "scripts": {
