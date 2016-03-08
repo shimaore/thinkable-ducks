@@ -13,15 +13,15 @@
   "author": "Stéphane Alnet <stephane@shimaore.net> (http://stephane.shimaore.net/)",
   "license": "Unlicense (http://unlicense.org/)",
   "dependencies": {
-    "bluebird": "^3.2.0",
+    "bluebird": "^3.3.4",
     "caring-band": "^1.4.2",
     "debug": "^2.2.0",
-    "morgan": "^1.6.1",
+    "morgan": "^1.7.0",
     "socket.io-client": "^1.4.5",
     "supervisord": "0.1.0",
-    "useful-wind": "^7.1.7",
-    "useful-wind-serialize": "^1.0.1",
-    "zappajs": "^4.0.1"
+    "useful-wind": "^7.1.9",
+    "useful-wind-serialize": "^1.0.2",
+    "zappajs": "^4.0.2"
   },
   "devDependencies": {
     "chai": "^3.5.0",
