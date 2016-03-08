@@ -4,7 +4,7 @@
 # package in /opt/thinkable-ducks (see README.md).
 #
 
-FROM shimaore/freeswitch:2.1.3
+FROM shimaore/freeswitch:2.1.4
 MAINTAINER Stéphane Alnet <stephane@shimaore.net>
 ENV NODE_ENV production
 
