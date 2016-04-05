@@ -18,7 +18,6 @@ RUN \
     curl \
     git \
     make \
-    python-pkg-resources \
     supervisor \
   && \
 # Install Node.js using `n`.
