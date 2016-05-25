@@ -13,7 +13,7 @@
   "author": "Stéphane Alnet <stephane@shimaore.net> (http://stephane.shimaore.net/)",
   "license": "Unlicense (http://unlicense.org/)",
   "dependencies": {
-    "bluebird": "^3.3.5",
+    "bluebird": "^3.4.0",
     "caring-band": "^1.4.3",
     "debug": "^2.2.0",
     "morgan": "^1.7.0",
