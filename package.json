@@ -21,13 +21,13 @@
     "supervisord": "0.1.0",
     "useful-wind": "^7.2.1",
     "useful-wind-serialize": "^1.0.2",
-    "zappajs": "^4.1.2"
+    "zappajs": "^4.1.4"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^5.3.0",
     "coffee-script": "^1.10.0",
-    "mocha": "^2.4.5",
+    "mocha": "^2.5.3",
     "superagent": "^1.8.3",
     "superagent-as-promised": "^4.0.0"
   },
