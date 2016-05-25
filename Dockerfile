@@ -13,7 +13,6 @@ RUN \
   mkdir -p /opt/thinkable-ducks/{conf,log} && \
   chown -R freeswitch.freeswitch /opt/thinkable-ducks/ && \
   apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
     ca-certificates \
     curl \
     git \
@@ -28,10 +27,7 @@ RUN \
   rm -rf n.git && \
   n 4.3.2 && \
   apt-get purge -y \
-    build-essential \
     ca-certificates \
-    cpp-5 \
-    gcc-5 \
     curl \
     git \
     make \
