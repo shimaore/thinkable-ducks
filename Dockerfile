@@ -10,7 +10,7 @@ ENV NODE_ENV production
 
 USER root
 RUN \
-  mkdir -p /opt/thinkable-ducks/{conf,log} && \
+  mkdir -p /opt/thinkable-ducks/conf /opt/thinkable_ducks/log && \
   chown -R freeswitch.freeswitch /opt/thinkable-ducks/ && \
   apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
