@@ -25,7 +25,7 @@ RUN \
   make install && \
   cd .. && \
   rm -rf n.git && \
-  n 6.2.2 && \
+  n 6.3.1 && \
   apt-get purge -y \
     ca-certificates \
     curl \
