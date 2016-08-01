@@ -11,15 +11,15 @@ port=127.0.0.1:SUPERVISORD_PORT
 supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
 
 [program:config]
-command=%(here)s/node_modules/.bin/coffee %(here)s/index.coffee.md
-environment=SUPERVISOR="http://127.0.0.1:SUPERVISORD_PORT",MODE="config",FSCONF="%(here)s/conf/freeswitch.xml"
+command=%(here)s/node_modules/.bin/coffee %(here)s/config.coffee.md
+environment=SUPERVISOR="http://127.0.0.1:SUPERVISORD_PORT",FSCONF="%(here)s/conf/freeswitch.xml"
 stdout_logfile=%(here)s/log/%(program_name)s.log
 stderr_logfile=%(here)s/log/%(program_name)s.log
 priority=10
 
 [program:server]
-command=%(here)s/node_modules/.bin/coffee %(here)s/index.coffee.md
-environment=SUPERVISOR="http://127.0.0.1:SUPERVISORD_PORT",MODE="server"
+command=%(here)s/node_modules/.bin/coffee %(here)s/server.coffee.md
+environment=SUPERVISOR="http://127.0.0.1:SUPERVISORD_PORT"
 stdout_logfile=%(here)s/log/%(program_name)s.log
 stderr_logfile=%(here)s/log/%(program_name)s.log
 priority=20

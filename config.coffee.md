@@ -34,3 +34,8 @@ Start the processes
     serialize = require 'useful-wind-serialize'
     pkg = require './package.json'
     debug = (require 'debug') "#{pkg.name}:config"
+
+    if require.main is module
+      main()
+      .catch (error) ->
+        debug "Startup failed: #{error}"

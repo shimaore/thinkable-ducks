@@ -31,3 +31,8 @@ If `server_pre` did not provide a `statistics` object, provide a default one.
     serialize = require 'useful-wind-serialize'
     pkg = require './package.json'
     debug = (require 'debug') "#{pkg.name}:server"
+
+    if require.main is module
+      main()
+      .catch (error) ->
+        debug "Startup failed: #{error}"
