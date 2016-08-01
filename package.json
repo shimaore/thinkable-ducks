@@ -17,6 +17,7 @@
     "caring-band": "^1.4.3",
     "debug": "^2.2.0",
     "morgan": "^1.7.0",
+    "seem": "^2.0.0",
     "socket.io-client": "^1.4.8",
     "supervisord": "0.1.0",
     "useful-wind": "^7.2.1",

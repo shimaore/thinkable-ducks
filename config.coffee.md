@@ -1,37 +1,31 @@
-    run = (cfg) ->
+    seem = require 'seem'
+    run = seem (cfg) ->
 
       supervisor = sup cfg
 
-      serialize cfg, 'config'
+      yield serialize cfg, 'config'
 
 Generate the configuration for FreeSwitch
 =========================================
 
-      .then ->
-        debug 'Building FreeSwitch configuration'
-        unless cfg.server_only is true
-          cfg.freeswitch? cfg
-      .then (xml) ->
-        unless cfg.server_only is true
-          fs.writeFileAsync process.env.FSCONF, xml, 'utf-8'
-      .catch (error) ->
-        debug "Unable to create FreeeSwitch configuration: #{error}"
-        throw error
+      debug 'Building FreeSwitch configuration'
+      unless cfg.server_only is true
+        xml = yield cfg.freeswitch? cfg
+        yield fs
+          .writeFileAsync process.env.FSCONF, xml, 'utf-8'
+          .catch (error) ->
+            debug "Unable to create FreeeSwitch configuration: #{error}"
+            throw error
 
 Start the processes
 ===================
 
-      .then ->
-        supervisor.startProcessAsync 'server'
-      .then ->
-        debug 'Started server'
-      .then ->
-        unless cfg.server_only is true
-          supervisor.startProcessAsync 'freeswitch'
-      .then ->
-        unless cfg.server_only is true
-          debug 'Started FreeSwitch'
+      yield supervisor.startProcessAsync 'server'
+      debug 'Started server'
 
+      unless cfg.server_only is true
+        yield supervisor.startProcessAsync 'freeswitch'
+        debug 'Started FreeSwitch'
 
     module.exports = run
     Promise = require 'bluebird'

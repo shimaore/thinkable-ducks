@@ -1,33 +1,31 @@
     call_server = require 'useful-wind/call_server'
     CaringBand = require 'caring-band'
 
-    run = (cfg) ->
+    seem = require 'seem'
+
+    run = seem (cfg) ->
 
       server = null
 
-      serialize cfg, 'server_pre'
-      .then ->
+      yield serialize cfg, 'server_pre'
 
 If `server_pre` did not provide a `statistics` object, provide a default one.
 
-        cfg.statistics ?= new CaringBand()
+      cfg.statistics ?= new CaringBand()
 
-        server = new call_server cfg
+      server = new call_server cfg
 
 `server.listen` will call the `@init` functions.
 
-        server.listen cfg.port
-        cfg.server = server
+      server.listen cfg.port
+      cfg.server = server
 
-        (require './web') cfg
-        (require './notify') cfg
-        (require './munin') cfg
+      (require './web') cfg
+      (require './notify') cfg
+      (require './munin') cfg
 
-        null
-      .then ->
-        serialize cfg, 'server_post'
-      .then ->
-        server
+      yield serialize cfg, 'server_post'
+      server
 
     module.exports = run
     serialize = require 'useful-wind-serialize'
