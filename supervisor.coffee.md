@@ -6,7 +6,6 @@ Async Supervisor access
     assert = require 'assert'
 
     module.exports = sup = (cfg) ->
-      assert process.env.SUPERVISOR?, 'Missing SUPERVISOR environment variable'
       supervisor = process.env.SUPERVISOR
-      return unless supervisor?
+      assert supervisor?, 'Missing SUPERVISOR environment variable'
       Promise.promisifyAll supervisord.connect supervisor
