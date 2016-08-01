@@ -11,7 +11,7 @@
     "clean": "rm *.js *.js.map"
   },
   "author": "Stéphane Alnet <stephane@shimaore.net> (http://stephane.shimaore.net/)",
-  "license": "Unlicense (http://unlicense.org/)",
+  "license": "Unlicense",
   "dependencies": {
     "bluebird": "^3.4.1",
     "caring-band": "^1.4.3",
