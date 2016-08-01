@@ -22,7 +22,7 @@
     "supervisord": "0.1.0",
     "useful-wind": "^7.2.1",
     "useful-wind-serialize": "^1.0.2",
-    "zappajs": "^5.0.0"
+    "zappajs": "^5.0.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
