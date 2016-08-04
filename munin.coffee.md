@@ -60,19 +60,19 @@ Munin Configuration
     build_config = (cfg) ->
       text = """
         multigraph #{name}_node_uptime
-        graph_title Node.js uptime
         graph_args --base 1000 -l 0
-        graph_scale no
-        graph_vlabel seconds
         graph_category voice
+        graph_scale no
+        graph_title Node.js uptime
+        graph_vlabel seconds
         #{name}_node_uptime.label uptime
         #{name}_node_uptime.draw AREA
 
         multigraph #{name}_node_memory
-        graph_title Node.js memory
         graph_args --base 1024 -l 0
-        graph_vlabel bytes
         graph_category voice
+        graph_title Node.js memory
+        graph_vlabel bytes
         #{name}_node_memory_rss.label rss
         #{name}_node_memory_rss.min 0
         #{name}_node_memory_heap_total.label heap (total)
@@ -81,10 +81,10 @@ Munin Configuration
         #{name}_node_memory_heap_used.min 0
 
         multigraph #{name}_hugeplay
-        graph_title Durations
-        graph_vlabel ${graph_period}
         graph_args --base 1000 -l 0
         graph_category voice
+        graph_title Durations
+        graph_vlabel ${graph_period}
 
       """
       for key in hugeplay_keys
