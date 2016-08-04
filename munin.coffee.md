@@ -70,6 +70,7 @@ Munin Configuration
 
         multigraph #{name}_node_memory
         graph_title Node.js memory
+        graph_args --base 1024 -l 0
         graph_vlabel bytes
         graph_category voice
         #{name}_node_memory_rss.label rss
@@ -82,7 +83,7 @@ Munin Configuration
         multigraph #{name}_hugeplay
         graph_title Durations
         graph_vlabel ${graph_period}
-        graph_args --base 1000
+        graph_args --base 1000 -l 0
         graph_category voice
 
       """
