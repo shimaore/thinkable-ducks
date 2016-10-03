@@ -5,7 +5,7 @@
   "description": "supervisor-controlled image for useful-wind",
   "main": "index.js",
   "scripts": {
-    "prepublish": "coffee -c -m *.coffee.md",
+    "prepublish": "coffee -c -M *.coffee.md",
     "pretest": "npm install",
     "test": "mocha",
     "clean": "rm *.js *.js.map"
