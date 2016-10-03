@@ -44,7 +44,6 @@
       it 'should respond', ->
         request.get 'http://127.0.0.1:3950/'
         .then ({text}) ->
-          console.log text
           text.should.match /multigraph/
 
       it 'should respond for config', ->
