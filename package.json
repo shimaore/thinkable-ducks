@@ -13,7 +13,7 @@
   "author": "Stéphane Alnet <stephane@shimaore.net> (http://stephane.shimaore.net/)",
   "license": "Unlicense",
   "dependencies": {
-    "bluebird": "^3.4.1",
+    "bluebird": "^3.4.6",
     "caring-band": "^1.4.3",
     "debug": "^2.2.0",
     "morgan": "^1.7.0",
@@ -22,14 +22,14 @@
     "supervisord": "0.1.0",
     "useful-wind": "^7.2.1",
     "useful-wind-serialize": "^1.0.2",
-    "zappajs": "^5.2.0"
+    "zappajs": "^6.0.2"
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "chai-as-promised": "^5.3.0",
-    "coffee-script": "^1.10.0",
-    "mocha": "^3.0.2",
-    "superagent": "^2.2.0",
+    "chai-as-promised": "^6.0.0",
+    "coffee-script": "^1.11.1",
+    "mocha": "^3.1.0",
+    "superagent": "^2.3.0",
     "superagent-as-promised": "^4.0.0"
   },
   "repository": {

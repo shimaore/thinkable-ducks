@@ -4,7 +4,7 @@
 # package in /opt/thinkable-ducks (see README.md).
 #
 
-FROM shimaore/freeswitch:4.0.2
+FROM shimaore/freeswitch:4.0.4
 MAINTAINER Stéphane Alnet <stephane@shimaore.net>
 ENV NODE_ENV production
 
@@ -25,7 +25,7 @@ RUN \
   make install && \
   cd .. && \
   rm -rf n.git && \
-  n 6.4.0 && \
+  n 6.7.0 && \
   apt-get purge -y \
     ca-certificates \
     curl \
