@@ -17,7 +17,7 @@ If `server_pre` did not provide a `statistics` object, provide a default one.
 
 `server.listen` will call the `@init` functions.
 
-      server.listen cfg.port
+      yield server.listen cfg.port
       cfg.server = server
 
       (require './web') cfg
