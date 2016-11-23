@@ -85,16 +85,16 @@ They are executed inside a Promise chain and may therefor return Promises.
 `config` middlewares
 --------------------
 
-A `thinkable-ducks` middleware module may contain `config`-time middleware functions which are ran inside the `config` application, before the `server` application and FreeSwitch are started.
+A `thinkable-ducks` middleware module may contain `config`-time middleware functions which are ran inside the `config` application. The `config` application is a separate process and runs before the `server` application and FreeSwitch are started.
 
 * `config` middleware in a context comprising of `this.cfg`.
 
-The `this.cfg` object is shared amongst all these functions, but not with the modules in the `server` application (since it is ran after the `config` application is completed).
+The `this.cfg` object is shared amongst all these functions, but not with the modules in the `server` application (since that application is a separate process and is ran after the `config` application is completed).
 
 `server` middlewares
 --------------------
 
-A `thinkable-ducks` middleware module may contain `server`-time middleware functions which are ran inside the `server` application, while FreeSwitch is running.
+A `thinkable-ducks` middleware module may contain `server`-time middleware functions which are ran inside the `server` application. The `server` application is a Node.js process which runs concurrently to FreeSwitch.
 
 Some functions are executed by [`useful-wind`](https://github.com/shimaore/useful-wind):
 
