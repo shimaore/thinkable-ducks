@@ -15,12 +15,12 @@
   "dependencies": {
     "bluebird": "^3.4.7",
     "caring-band": "^1.4.3",
-    "debug": "^2.5.2",
+    "debug": "^2.6.0",
     "morgan": "^1.7.0",
     "seem": "^2.0.0",
     "socket.io-client": "^1.7.2",
     "supervisord": "0.1.0",
-    "useful-wind": "^7.3.1",
+    "useful-wind": "^7.4.0",
     "useful-wind-serialize": "^1.0.2",
     "zappajs": "^6.2.0"
   },
@@ -29,7 +29,7 @@
     "chai-as-promised": "^6.0.0",
     "coffee-script": "^1.12.2",
     "mocha": "^3.2.0",
-    "superagent": "^3.3.1",
+    "superagent": "^3.3.2",
     "superagent-as-promised": "^4.0.0"
   },
   "repository": {
