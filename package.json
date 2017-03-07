@@ -13,23 +13,23 @@
   "author": "Stéphane Alnet <stephane@shimaore.net> (http://stephane.shimaore.net/)",
   "license": "Unlicense",
   "dependencies": {
-    "bluebird": "^3.4.7",
+    "bluebird": "^3.5.0",
     "caring-band": "^1.4.3",
-    "debug": "^2.6.0",
-    "morgan": "^1.7.0",
+    "debug": "^2.6.1",
+    "morgan": "^1.8.1",
     "seem": "^2.0.0",
-    "socket.io-client": "^1.7.2",
+    "socket.io-client": "^1.7.3",
     "supervisord": "0.1.0",
     "useful-wind": "^7.4.0",
     "useful-wind-serialize": "^1.0.2",
-    "zappajs": "^6.2.0"
+    "zappajs": "^6.3.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
-    "coffee-script": "^1.12.2",
+    "coffee-script": "^1.12.4",
     "mocha": "^3.2.0",
-    "superagent": "^3.3.2",
+    "superagent": "^3.5.0"
   },
   "repository": {
     "type": "git",
