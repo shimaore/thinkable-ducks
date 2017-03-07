@@ -26,6 +26,7 @@ Functions of the same name are called in the order their are listed in the modul
 
 - `@init` functions are called by `server.listen` (in useful-wind).
   These are guaranteed to have a `@statistics` object (above) and a `@router` object (in useful-wind).
+  * cfg.port (integer) port number for the thinkable-ducks server (which handles outbound socket events from FreeSwitch)
 
       yield server.listen cfg.port
 
