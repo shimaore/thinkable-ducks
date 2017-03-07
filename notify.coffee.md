@@ -8,15 +8,7 @@ This is meant to be used in conjunction with (e.g.) the `spicy-action` message f
 
       socket = io cfg.notify
 
-Standard events: `add`.
-
-      cfg.statistics?.on 'add', (data) ->
-        socket.emit 'statistics:add',
-          host: cfg.host
-          key: data.key
-          value: data.value.toJSON()
-
-Optionally let each module define its own events
+Let each module define its own events
 
       if cfg.use?
         for m in cfg.use when m.notify?
