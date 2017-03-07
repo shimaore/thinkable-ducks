@@ -30,7 +30,6 @@
     "coffee-script": "^1.12.2",
     "mocha": "^3.2.0",
     "superagent": "^3.3.2",
-    "superagent-as-promised": "^4.0.0"
   },
   "repository": {
     "type": "git",

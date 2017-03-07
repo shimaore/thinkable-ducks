@@ -1,7 +1,7 @@
     chai = require 'chai'
     chai.use require 'chai-as-promised'
     chai.should()
-    request = (require 'superagent-as-promised') require 'superagent'
+    request = require 'superagent'
 
     describe 'Basic web service', ->
       app = null
