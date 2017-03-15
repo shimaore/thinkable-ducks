@@ -9,6 +9,8 @@ Web Services
     module.exports = (cfg) ->
       return unless cfg.web?
 
+      cfg.web.io ?= no
+
       cfg.versions ?= {}
       cfg.versions[pkg.name] = pkg.version
 
