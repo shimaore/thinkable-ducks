@@ -27,7 +27,7 @@ autostart=false
 autorestart=true
 
 [program:freeswitch]
-command=/opt/freeswitch/bin/freeswitch -c -nonat -nonatmap -conf %(here)s/conf -log %(here)s/log -db /dev/shm/freeswitch
+command=/opt/freeswitch/bin/freeswitch -c -nonat -nonatmap -conf %(here)s/conf -log %(here)s/log -db /dev/shm/freeswitch -temp %(here)s/log
 stdout_logfile=%(here)s/log/%(program_name)s.log
 stderr_logfile=%(here)s/log/%(program_name)s.log
 autostart=false
