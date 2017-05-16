@@ -4,7 +4,6 @@ Web Services
     Zappa = require 'zappajs'
     sup = require './supervisor'
     pkg = require './package.json'
-    Promise = require 'bluebird'
 
     module.exports = (cfg) ->
       return unless cfg.web?
