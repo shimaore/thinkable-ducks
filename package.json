@@ -20,7 +20,7 @@
     "seem": "^2.0.0",
     "socket.io-client": "^2.0.1",
     "supervisord": "0.1.0",
-    "useful-wind": "^7.5.2",
+    "useful-wind": "^7.5.3",
     "useful-wind-serialize": "^1.2.0",
     "zappajs": "^6.4.0"
   },
