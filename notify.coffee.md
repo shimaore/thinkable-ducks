@@ -1,7 +1,9 @@
 Socket.IO client that maps `statistics` (that is, CaringBand-as-EventEmitter) messages to Socket.io messages.
 This is meant to be used in conjunction with (e.g.) the `spicy-action` message forwarder.
 
-    module.exports = (cfg) ->
+    seem = require 'seem'
+
+    module.exports = seem (cfg) ->
       unless cfg.notify?
         debug 'Missing cfg.notify, not starting Socket.IO'
         return
@@ -10,12 +12,10 @@ This is meant to be used in conjunction with (e.g.) the `spicy-action` message f
 
 Let each module define its own events
 
-      if cfg.use?
-        for m in cfg.use when m.notify?
-          do (m) ->
-            ctx = {cfg,socket}
-            m.notify.call ctx, ctx
+      ctx = {cfg,socket}
+      yield serialize.modules cfg.use, ctx, 'notify'
 
     io = require 'socket.io-client'
     pkg = require './package.json'
     debug = (require 'debug') "#{pkg.name}:notify"
+    serialize = require 'useful-wind-serialize'

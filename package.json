@@ -15,13 +15,13 @@
   "dependencies": {
     "bluebird": "^3.5.0",
     "caring-band": "^1.4.3",
-    "debug": "^2.6.6",
+    "debug": "^2.6.8",
     "morgan": "^1.8.1",
     "seem": "^2.0.0",
     "socket.io-client": "^2.0.1",
     "supervisord": "0.1.0",
     "useful-wind": "^7.5.2",
-    "useful-wind-serialize": "^1.1.1",
+    "useful-wind-serialize": "^1.2.0",
     "zappajs": "^6.4.0"
   },
   "devDependencies": {

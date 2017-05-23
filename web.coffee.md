@@ -4,6 +4,8 @@ Web Services
     Zappa = require 'zappajs'
     sup = require './supervisor'
     pkg = require './package.json'
+    seem = require 'seem'
+    serialize = require 'useful-wind-serialize'
 
     module.exports = (cfg) ->
       return unless cfg.web?
@@ -13,7 +15,7 @@ Web Services
       cfg.versions ?= {}
       cfg.versions[pkg.name] = pkg.version
 
-      web = Zappa.run cfg.web, ->
+      web = Zappa.run cfg.web, seem ->
 
         @use morgan:'combined'
 
@@ -75,7 +77,4 @@ Supervisor info
           .catch (error) =>
             @res.status(500).json error:error.toString()
 
-        if cfg.use?
-          for m in cfg.use when m.web?
-            do (m) =>
-              m.web.call this, this
+        yield serialize.modules cfg.use, this, 'web'

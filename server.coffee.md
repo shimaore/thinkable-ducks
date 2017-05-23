@@ -32,13 +32,13 @@ Functions of the same name are called in the order their are listed in the modul
 
 - `@web` functions are Zappa fragments (same as regular zappajs `@include` fragments) to handle web requests.
 
-      (require './web') cfg
+      yield (require './web') cfg
 
 - `@notify` functions are socket.io-client handlers; they receive `cfg`, `socket`.
 
-      (require './notify') cfg
+      yield (require './notify') cfg
 
-      (require './munin') cfg
+      yield (require './munin') cfg
 
 - `@server_post` functions are called at the end of server initialization.
 
