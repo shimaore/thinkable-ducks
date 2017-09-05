@@ -1,0 +1,19 @@
+#!/bin/sh
+if [ "$1" = "config" ]; then
+  cat <<'EOT'
+graph_title FreeSwitch Memory
+graph_args -l 0 --base 1000
+graph_category voice
+graph_vlabel KiB
+freeswitch_rss.label Resident Set
+freeswitch_rss.type ABSOLUTE
+freeswitch_rss.min 0
+freeswitch_vsz.label Virtual Memory
+freeswitch_vsz.type ABSOLUTE
+freeswitch_vsz.min 0
+EOT
+  exit 0
+fi
+
+echo "freeswitch_rss.value `ps -C freeswitch -o rss=`"
+echo "freeswitch_vsz.value `ps -C freeswitch -o vsz=`"
