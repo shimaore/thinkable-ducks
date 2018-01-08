@@ -5,7 +5,7 @@
   "description": "supervisor-controlled image for useful-wind",
   "main": "index.js",
   "scripts": {
-    "prepublish": "coffee -c -M *.coffee.md",
+    "prepublishOnly": "npm install --only=dev && rm package-lock.json && coffee -c -M *.coffee.md",
     "pretest": "npm install",
     "test": "mocha",
     "clean": "rm *.js *.js.map"
@@ -28,8 +28,8 @@
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "coffee-script": "^1.12.7",
-    "mocha": "^3.5.0",
-    "superagent": "^3.8.0"
+    "mocha": "^4.1.0",
+    "superagent": "^3.8.2"
   },
   "repository": {
     "type": "git",
