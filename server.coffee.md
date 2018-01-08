@@ -47,6 +47,8 @@ Functions of the same name are called in the order their are listed in the modul
 
 - `@include` functions are used by the useful-wind router to handle individual calls. Their context is more complex since it contains specific details about a call.
 
+- `@end` functions are called by `server.stop` (in useful-wind).
+
     module.exports = run
     serialize = require 'useful-wind-serialize'
     pkg = require './package.json'
