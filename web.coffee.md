@@ -76,3 +76,4 @@ Supervisor info
             @res.status(500).json error:error.toString()
 
         yield serialize.modules cfg.use, this, 'web'
+        return

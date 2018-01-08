@@ -14,6 +14,7 @@ Let each module define its own events
 
       ctx = {cfg,socket}
       yield serialize.modules cfg.use, ctx, 'notify'
+      return
 
     io = require 'socket.io-client'
     pkg = require './package.json'
