@@ -14,14 +14,14 @@ supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
 serverurl=http://127.0.0.1:SUPERVISORD_PORT
 
 [program:config]
-command=%(here)s/node_modules/.bin/coffee %(here)s/config.coffee.md
+command=node config.js
 environment=SUPERVISOR="http://127.0.0.1:SUPERVISORD_PORT",FSCONF="%(here)s/conf/freeswitch.xml"
 stdout_logfile=%(here)s/log/%(program_name)s.log
 stderr_logfile=%(here)s/log/%(program_name)s.log
 priority=10
 
 [program:server]
-command=%(here)s/node_modules/.bin/coffee %(here)s/server.coffee.md
+command=node server.js
 environment=SUPERVISOR="http://127.0.0.1:SUPERVISORD_PORT"
 stdout_logfile=%(here)s/log/%(program_name)s.log
 stderr_logfile=%(here)s/log/%(program_name)s.log
