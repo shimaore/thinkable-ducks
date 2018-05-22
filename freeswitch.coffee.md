@@ -3,6 +3,8 @@
 Start the processes
 ===================
 
+      await fs.mkdirAsync '/data/log'
+
       s = child_process.spawn '/opt/freeswitch/bin/freeswitch',
         [ '-c', '-nonat', '-nonatmap', '-conf', '/data/conf', '-log', '/data/log', '-db', '/dev/shm/freeswitch', '-temp', '/data/log' ],
         stdio: ['ignore',process.stdout,process.stderr]
@@ -22,4 +24,6 @@ Start the processes
       s
 
     child_process = require 'child_process'
+    Bluebird = require 'bluebird'
+    fs = Bluebird.promisifyAll require 'fs'
     debug = (require 'tangible') 'thinkable-ducks:freeswitch'
