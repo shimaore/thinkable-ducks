@@ -2,7 +2,6 @@ Web Services
 ============
 
     Zappa = require 'zappajs'
-    sup = require './supervisor'
     pkg = require './package.json'
     serialize = require 'useful-wind-serialize'
 
@@ -54,25 +53,8 @@ Generic statistics
             memory: process.memoryUsage()
             versions: @cfg.versions
 
-Supervisor info
----------------
-
-        @get '/supervisor', ->
-          supervisor = sup cfg
-          res = {}
-          supervisor.getSupervisorVersionAsync()
-          .then (version) ->
-            res.version = version
-            supervisor.getStateAsync()
-          .then (state) ->
-            res.state = state
-            supervisor.getAllProcessInfoAsync()
-          .then (processes) ->
-            res.processes = processes
-          .then =>
-            @json res
-          .catch (error) =>
-            @res.status(500).json error:error.toString()
+Modules web services
+--------------------
 
         await serialize.modules cfg.use, this, 'web'
         return

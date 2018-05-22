@@ -15,7 +15,7 @@ Functions of the same name are called in the order their are listed in the modul
 
       await serialize cfg, 'server_pre'
 
-  If no `@server_pre` function assign a `statistics` object, one is provided.
+If no `@server_pre` function assign a `statistics` object, one is provided.
 
       cfg.statistics ?= new CaringBand()
 

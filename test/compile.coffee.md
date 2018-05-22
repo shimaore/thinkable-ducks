@@ -3,5 +3,5 @@
         require '../config'
         require '../notify'
         require '../server'
-        require '../supervisor'
+        require '../freeswitch'
         require '../web'
