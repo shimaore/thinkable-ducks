@@ -1,20 +1,19 @@
-    seem = require 'seem'
-    run = seem (cfg) ->
+    run = (cfg) ->
 
       supervisor = sup cfg
 
-      yield serialize cfg, 'config'
+      await serialize cfg, 'config'
 
 Generate the configuration for FreeSwitch
 =========================================
 
       debug 'Building FreeSwitch configuration'
       unless cfg.server_only is true
-        xml = yield cfg.freeswitch? cfg
-        yield fs
-          .writeFileAsync process.env.FSCONF, xml, 'utf-8'
+        xml = await cfg.freeswitch? cfg
+        await fs
+          .writeFileAsync '/data/conf/freeswitch.xml', xml, 'utf-8'
           .catch (error) ->
-            debug "Unable to create FreeeSwitch configuration: #{error}"
+            debug.dev "Unable to create FreeeSwitch configuration: #{error}"
             throw error
 
 Start the processes
@@ -28,9 +27,8 @@ Start the processes
         debug 'Started FreeSwitch'
 
     module.exports = run
-    Promise = require 'bluebird'
-    fs = Promise.promisifyAll require 'fs'
+    Bluebird = require 'bluebird'
+    fs = Bluebird.promisifyAll require 'fs'
     sup = require './supervisor'
     serialize = require 'useful-wind-serialize'
-    pkg = require './package.json'
-    debug = (require 'debug') "#{pkg.name}:config"
+    debug = (require 'debug') 'thinkable-ducks:config'

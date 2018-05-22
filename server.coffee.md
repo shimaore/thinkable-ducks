@@ -1,9 +1,7 @@
     call_server = require 'useful-wind/call_server'
     CaringBand = require 'caring-band'
 
-    seem = require 'seem'
-
-    run = seem (cfg) ->
+    run = (cfg) ->
 
       server = null
 
@@ -15,7 +13,7 @@ Functions of the same name are called in the order their are listed in the modul
 
 - `@server_pre` functions are called before any others during server startup; they may initialize a `cfg.statistics` object.
 
-      yield serialize cfg, 'server_pre'
+      await serialize cfg, 'server_pre'
 
   If no `@server_pre` function assign a `statistics` object, one is provided.
 
@@ -28,21 +26,21 @@ Functions of the same name are called in the order their are listed in the modul
   These are guaranteed to have a `@statistics` object (above) and a `@router` object (in useful-wind).
   * cfg.port (integer) port number for the thinkable-ducks server (which handles outbound socket events from FreeSwitch)
 
-      yield server.listen cfg.port
+      await server.listen cfg.port
 
 - `@web` functions are Zappa fragments (same as regular zappajs `@include` fragments) to handle web requests.
 
-      yield (require './web') cfg
+      await (require './web') cfg
 
 - `@notify` functions are socket.io-client handlers; they receive `cfg`, `socket`.
 
-      yield (require './notify') cfg
+      await (require './notify') cfg
 
-      yield (require './munin') cfg
+      await (require './munin') cfg
 
 - `@server_post` functions are called at the end of server initialization.
 
-      yield serialize cfg, 'server_post'
+      await serialize cfg, 'server_post'
       server
 
 - `@include` functions are used by the useful-wind router to handle individual calls. Their context is more complex since it contains specific details about a call.
@@ -51,5 +49,3 @@ Functions of the same name are called in the order their are listed in the modul
 
     module.exports = run
     serialize = require 'useful-wind-serialize'
-    pkg = require './package.json'
-    debug = (require 'debug') "#{pkg.name}:server"
