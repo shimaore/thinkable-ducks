@@ -20,7 +20,7 @@
     "morgan": "^1.9.0",
     "socket.io-client": "^2.0.4",
     "useful-wind": "^7.8.2",
-    "useful-wind-serialize": "^1.4.0",
+    "useful-wind-serialize": "^1.5.0",
     "zappajs": "^6.5.0"
   },
   "devDependencies": {

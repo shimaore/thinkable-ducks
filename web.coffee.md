@@ -56,5 +56,7 @@ Generic statistics
 Modules web services
 --------------------
 
-        await serialize.modules cfg.use, this, 'web'
+        errors = await serialize.modules cfg.use, this, 'web'
+        if errors > 0
+          throw new Error "web had #{errors} errors"
         return

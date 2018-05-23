@@ -13,7 +13,9 @@ Functions of the same name are called in the order their are listed in the modul
 
 - `@server_pre` functions are called before any others during server startup; they may initialize a `cfg.statistics` object.
 
-      await serialize cfg, 'server_pre'
+      errors = await serialize cfg, 'server_pre'
+      if errors > 0
+        throw new Error "server_pre had #{errors} errors"
 
 If no `@server_pre` function assign a `statistics` object, one is provided.
 
@@ -40,7 +42,9 @@ If no `@server_pre` function assign a `statistics` object, one is provided.
 
 - `@server_post` functions are called at the end of server initialization.
 
-      await serialize cfg, 'server_post'
+      errors = await serialize cfg, 'server_post'
+      if errors > 0
+        throw new Error "server_post had #{errors} errors"
       server
 
 - `@include` functions are used by the useful-wind router to handle individual calls. Their context is more complex since it contains specific details about a call.

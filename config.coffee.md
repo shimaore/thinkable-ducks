@@ -1,6 +1,8 @@
     run = (cfg) ->
 
-      await serialize cfg, 'config'
+      errors = await serialize cfg, 'config'
+      if errors > 0
+        throw new Error "config had #{errors} errors"
 
 Generate the configuration for FreeSwitch
 =========================================
