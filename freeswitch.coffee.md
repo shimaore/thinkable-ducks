@@ -18,6 +18,8 @@ Start the processes
       s.on 'exit', (code,signal) ->
         debug.dev "Process exited with code #{code}, signal #{signal}"
         process.exit code
+        
+      process.on 'exit', -> s.kill()
 
       s
 
