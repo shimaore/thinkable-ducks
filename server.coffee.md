@@ -34,10 +34,6 @@ If no `@server_pre` function assign a `statistics` object, one is provided.
 
       await (require './web') cfg
 
-- `@notify` functions are socket.io-client handlers; they receive `cfg`, `socket`.
-
-      await (require './notify') cfg
-
       await (require './munin') cfg
 
 - `@server_post` functions are called at the end of server initialization.
