@@ -1,0 +1,7 @@
+image: node:alpine
+
+test:
+  stage: test
+  script:
+  - npm install
+  - npm test
