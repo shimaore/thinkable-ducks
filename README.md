@@ -10,7 +10,6 @@ Features
 
 * Docker image with FreeSwitch and Node.js
 * FreeSwitch calls are controlled by Node.js using the Event Socket
-* Realtime statistical reporting via extendable web services
 * Realtime notifications via extendable Socket.IO client
 
 Processes
@@ -49,23 +48,9 @@ Finally it will run any `server_post` middleware function.
 The web service provides by default:
 
 * `GET /`
-* `GET /statistics`
-* `GET /statistics/:key`
 * `GET /supervisor`
 
 It may be extended by `web` middleware functions.
-
-### `notify`
-
-The notification service provides by default:
-
-* `add` messages when data is modified in a statistics object
-* `call` messages during call processing
-* `report` messages to indicate provisioning errors
-
-These messages might be `emit`ted against the `statistics` object during call processing. You must create the `statistics` object on the `this.cfg` object for these notifications to work. See [the `init` function in tough-rate's setup middleware](https://github.com/shimaore/tough-rate/blob/master/middleware/setup.coffee.md#init) for an example.
-
-The notification service may be extended by `notify` middleware functions.
 
 Middleware modules
 ==================

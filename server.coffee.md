@@ -11,21 +11,17 @@ The modules are listed in the `cfg.use` field.
 Each module may export multiple functions described below; these functions are generally called with a context containing `@cfg`.
 Functions of the same name are called in the order their are listed in the module; progress to the next step is only achieved once all functions have returned or (if they return a Promise) all Promises have completed (in the order they were returned).
 
-- `@server_pre` functions are called before any others during server startup; they may initialize a `cfg.statistics` object.
+- `@server_pre` functions are called before any others during server startup;
 
       errors = await serialize cfg, 'server_pre'
       if errors > 0
         throw new Error "server_pre had #{errors} errors"
 
-If no `@server_pre` function assign a `statistics` object, one is provided.
-
-      cfg.statistics ?= new CaringBand()
-
       server = new call_server cfg
       cfg.server = server
 
 - `@init` functions are called by `server.listen` (in useful-wind).
-  These are guaranteed to have a `@statistics` object (above) and a `@router` object (in useful-wind).
+  These are guaranteed to have a `@router` object (in useful-wind).
   * cfg.port (integer) port number for the thinkable-ducks server (which handles outbound socket events from FreeSwitch)
 
       await server.listen cfg.port

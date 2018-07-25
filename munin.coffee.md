@@ -41,21 +41,12 @@ Web Services for Munin
             multigraph #{name}_hugeplay
 
           """
-          for key in hugeplay_keys
-            value = cfg.statistics?.get key
-            if value?
-              text += """
-                #{name}_hugeplay_#{key}.value #{value.sum.toDecimal 0}
-
-              """
-
           @send text
 
 Munin Configuration
 ===================
 
     name = process.env.MUNIN_NAME ? 'freeswitch'
-    hugeplay_keys = ['duration','billable','progress','answer','wait','progress_media','flow_bill']
 
     build_config = (cfg) ->
       text = """
@@ -87,14 +78,6 @@ Munin Configuration
         graph_vlabel ${graph_period}
 
       """
-      for key in hugeplay_keys
-        text += """
-          #{name}_hugeplay_#{key}.label #{key}
-          #{name}_hugeplay_#{key}.type DERIVE
-          #{name}_hugeplay_#{key}.min 0
-
-        """
-
       text
 
 Toolbox
