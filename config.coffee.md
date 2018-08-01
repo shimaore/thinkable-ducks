@@ -7,8 +7,8 @@
 Generate the configuration for FreeSwitch
 =========================================
 
-      debug 'Building FreeSwitch configuration'
       unless cfg.server_only is true
+        debug 'Building FreeSwitch configuration'
         xml = await cfg.freeswitch? cfg
         await fs.mkdirAsync '/dev/shm/freeswitch'
         await fs
