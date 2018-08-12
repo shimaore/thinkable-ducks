@@ -1,5 +1,4 @@
     call_server = require 'useful-wind/call_server'
-    CaringBand = require 'caring-band'
 
     run = (cfg) ->
 
