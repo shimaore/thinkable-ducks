@@ -17,8 +17,8 @@
     "bluebird": "^3.5.1",
     "debug": "^3.1.0",
     "morgan": "^1.9.0",
-    "useful-wind": "^7.8.2",
-    "useful-wind-serialize": "^1.6.0",
+    "useful-wind": "^7.8.3",
+    "useful-wind-serialize": "^1.6.1",
     "zappajs": "^6.5.0"
   },
   "devDependencies": {
