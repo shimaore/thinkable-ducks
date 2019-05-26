@@ -83,5 +83,5 @@ Munin Configuration
 Toolbox
 =======
 
-    Zappa = require 'zappajs'
+    Zappa = require 'core-zappa'
     module.exports = run

@@ -10,15 +10,15 @@ Generate the configuration for FreeSwitch
       unless cfg.server_only is true
         debug 'Building FreeSwitch configuration'
         xml = await cfg.freeswitch? cfg
-        await fs.mkdirAsync '/dev/shm/freeswitch'
+        await fs.mkdir '/dev/shm/freeswitch'
         await fs
-          .writeFileAsync '/dev/shm/freeswitch/freeswitch.xml', xml, 'utf-8'
+          .writeFile '/dev/shm/freeswitch/freeswitch.xml', xml, 'utf-8'
           .catch (error) ->
             debug.dev "Unable to create FreeeSwitch configuration: #{error}"
             throw error
 
     module.exports = run
     Bluebird = require 'bluebird'
-    fs = Bluebird.promisifyAll require 'fs'
+    fs = (require 'fs').promises
     serialize = require 'useful-wind-serialize'
     debug = (require 'debug') 'thinkable-ducks:config'

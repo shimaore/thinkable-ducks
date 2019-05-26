@@ -1,7 +1,7 @@
 Web Services
 ============
 
-    Zappa = require 'zappajs'
+    Zappa = require 'core-zappa'
     pkg = require './package.json'
     serialize = require 'useful-wind-serialize'
 
